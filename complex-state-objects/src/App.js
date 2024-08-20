@@ -11,20 +11,24 @@ function App() {
     email: "itsmyrealname@example.com",
     isFavorite: false
   })
- function toggleFovrite(){
 
+let starIcon = contact.isFavorite === false ? "/images/starempty.png" : "/images/starfill.png"
+
+ function toggleFavorite(){
+  // (setContact => prevSetContact )
   console.log("Toggle Favorite")
  }
   return (
     <main>
       <article className="card">
-        {/* <img src="" className='' /> */}
+        <img src="/images/userimage.png" className='card-image' alt='userimage'/>
         <div className="card-info">
-    {/* <img 
-      src={}
-      className=''
-      onClick={}
-    /> */}
+    <img 
+      src={starIcon}
+      className='star-image'
+      alt='star-image'
+      onClick={toggleFavorite}
+    />
     <h2 className="card-contact">{contact.firstName} {contact.lastName}</h2>
     <p className="card-contact">{contact.phone}</p>
     <p className="card-contact">{contact.email}</p>
