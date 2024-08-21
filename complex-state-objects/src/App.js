@@ -15,7 +15,7 @@ function App() {
 let starIcon = contact.isFavorite === false ? "/images/starempty.png" : "/images/starfill.png"
 
  function toggleFavorite(){
-  // (setContact => prevSetContact )
+  // (setContact => prevContact )
   console.log("Toggle Favorite")
  }
   return (
