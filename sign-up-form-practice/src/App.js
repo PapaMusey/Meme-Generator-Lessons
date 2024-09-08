@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import Form from './Form';
 
+//WATCH FOR INPUT CHANGES IN REACT
 
 function App() {
   return (
