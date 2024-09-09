@@ -1,13 +1,11 @@
 import React from 'react';
 
 export default function Form() {
-    const [formData, setFormData] = React.useState({ 
-        firstName: "", 
-        lastName: "", 
+    const [formData, setFormData] = React.useState({   
         email: "", 
-        comments: "",
-        isFriendly:false,
-        employment: "",
+        password: "",
+        confirmPassword:"",
+        isJoinNewsletter:false,
     })
     console.log(formData.employment)
 
@@ -20,23 +18,29 @@ export default function Form() {
             }
         })
     }
+    console.log(formData)
+
+    function handleClick(event){
+        event.preventDefault()
+        // Password confirmation check
+    if (formData.password === formData.confirmPassword) {
+        console.log("Successfully signed up")
+    }
+    else {
+        console.log("Passwords do not match!")
+        return; //this line prevents the code below from running
+    }
+    if (formData.isJoinNewsletter === true){
+        console.log("Thanks for singing up for our newsletter!")
+    }
+    }
+    
+    
     return (
         <>
-            <form>
-                <input
-                    type="text"
-                    placeholder='First name'
-                    onChange={handleChange}
-                    name="firstName"
-                    value={formData.firstName}
-                />
-                <input
-                    type="text"
-                    placeholder='Last name'
-                    onChange={handleChange}
-                    name="lastName"
-                    value={formData.lastName}
-                />
+            <form 
+            onSubmit={handleClick}>
+                
                 <input
                     type="text"
                     placeholder='email'
@@ -44,57 +48,33 @@ export default function Form() {
                     name="email"
                     value={formData.email}
                 />
-                <textarea
-                    name= "comments" //understand your mistake here before moving on
-                    value={formData.comments}
-                    placeholder='Type Comments here'
-                    onChange={handleChange}
+                <br />
+                <input
+                type="password"  // This sets the input type to password, which hides the text
+                placeholder='Password'  // Placeholder text for the input field
+                onChange={handleChange}  // Function to handle changes in the input
+                name="password"  // Name attribute for identifying the input
+                value={formData.password}  // The value of the input, taken from the state
                 />
+                <br />
+                <input
+                type="password"  // Sets the input type to password to mask characters
+                placeholder='Confirm Password'  // Placeholder text for the input field
+                onChange={handleChange}  // Function to handle changes in the input
+                name="confirmPassword"  // Name attribute for identifying the input
+                value={formData.confirmPassword}  // The value of the input, taken from the state
+                />
+                <br/>
                 <input 
                 type="checkbox"
-                id="isFriendly" //becuase its a boolean it usually or always has 2 values
-                checked={formData.isFriendly}
+                id="isJoinNewsletter" //becuase its a boolean it usually or always has 2 values
+                checked={formData.isJoinNewsletter}
                 onChange={handleChange}
-                name="isFriendly"
+                name="isJoinNewsletter"
                 />
-                <label htmlFor='isFriendly'>Are you friendly </label>
-                
-                <fieldset>
-                   <legend>Current Employment status</legend> 
-                   <input
-                    type="radio"
-                    id='unemployed'
-                    name="employment"
-                    value="unemployed"
-                    checked={formData.employment === "unemployed"}
-                    onChange={handleChange}
-
-                   />
-                   <label htmlFor='unemployed'>Unemployed</label>
-                   <br/>
-                   <input
-                    type="radio"
-                    id='part-time'
-                    name="employment"
-                    value="part-time"
-                    checked={formData.employment === "part-time"}
-                    onChange={handleChange}
-
-                   />
-                   <label htmlFor='part-time'>Part-time</label>
-                   <legend>Current Employment status</legend> 
-                   <input
-                    type="radio"
-                    id='full-time'
-                    name="employment"
-                    value="full-time"
-                    checked={formData.employment === "full-time"}
-                    onChange={handleChange}
-
-                   />
-                   <label htmlFor='full-time'>Full-time</label>
-
-                </fieldset>
+                <label htmlFor='isJoinNewsletter'>I want to join the news letter </label>
+                <br />
+                <button>Sign up</button>
             </form>
 
         </>
