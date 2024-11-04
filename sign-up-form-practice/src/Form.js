@@ -21,14 +21,14 @@ export default function Form() {
     console.log(formData)
 
     function handleClick(event){
-        event.preventDefault()
+        event.preventDefault()// this line is what you must always put as the first thing under this function
         // Password confirmation check
     if (formData.password === formData.confirmPassword) {
         console.log("Successfully signed up")
     }
     else {
         console.log("Passwords do not match!")
-        return; //this line prevents the code below from running
+        return; //this line prevents the code below from running since the passwords do not match
     }
     if (formData.isJoinNewsletter === true){
         console.log("Thanks for singing up for our newsletter!")
@@ -74,7 +74,9 @@ export default function Form() {
                 />
                 <label htmlFor='isJoinNewsletter'>I want to join the news letter </label>
                 <br />
-                <button>Sign up</button>
+                <button>Sign up</button> 
+                {/* Clicking this button will trigger the onSubmit event 
+                because a button in a form acts as its form submission tool */}
             </form>
 
         </>

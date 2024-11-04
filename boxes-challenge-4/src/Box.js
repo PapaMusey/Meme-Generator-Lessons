@@ -13,6 +13,8 @@ export default function Box(props) {
     <div style={styles} className='box' 
     onClick={()=>props.handleClick(props.id)}
     ></div>
+    //the reason why we use the arrow function () => here is because if we don't, it will render 
+    //the toggle function immediately the app renders onto the console/screen but not when the event is clicked
   )
 }
 

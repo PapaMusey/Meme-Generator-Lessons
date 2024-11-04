@@ -11,7 +11,7 @@ export default function Form () {
     }
 
     function handleLastNameChange(event){
-        setFirstName((event.target.value))
+        setLastName((event.target.value))
     }
     return (
         <>

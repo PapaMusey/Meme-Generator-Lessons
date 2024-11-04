@@ -22,7 +22,7 @@ export default function Form() {
         })
     }
     function handleSubmit(event){
-        event.preventDefault()
+        event.preventDefault() //prevent default means it won't rerender our page and our app 
         console.log(formData)
     }
     return (
